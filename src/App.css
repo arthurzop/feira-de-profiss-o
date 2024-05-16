@@ -1,22 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --vermelho: #E10613;
+  --vermelho: #e10613;
   --cinza: #878787;
   --branco: #fff;
   --preto: #000;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   width: 100%;
   height: 100vh;
   background-color: var(--branco);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   overflow-y: hidden;
+  transition: all 1s ease-in-out;
 }
