@@ -1,9 +1,5 @@
-import './button.css'
+import "./button.css";
 
-export default function Button({logic, label, }){
-    return(
-        <button onClick={() => {logic }}>
-            {label}
-        </button>
-    )
+export default function Button({ Click, label }) {
+  return <button onClick={Click}>{label}</button>;
 }
