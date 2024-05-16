@@ -1,13 +1,16 @@
 import "./style.css";
 
 import * as I from "iconoir-react";
-import Button from "../components/button/button";
+import { useNavigate } from "react-router-dom";
 
 //images
+import Button from "../components/button/button";
 import LogoSenai from "../assets/logo.svg";
 import decoLeft from "../assets/deco-left.svg";
 
 export default function Cadastro() {
+  const nav = useNavigate();
+
   return (
     <body>
       <header style={{ justifyContent: "end" }}>
@@ -22,9 +25,18 @@ export default function Cadastro() {
         <img src={decoLeft} alt="decoration" className="decoration deco-left" />
       </header>
       <main>
-        <I.NavArrowLeft />
-        <h1>Demonstração de Funionalidade</h1>
-        <div className="main-line"></div>
+        <div className="title">
+          <I.NavArrowLeft
+            style={{ fontSize: "2em", cursor: "pointer" }}
+            onClick={() => {
+              nav("/");
+            }}
+          />
+          <h1>
+            Demonstração de Funionalidade
+            <div className="main-line"></div>
+          </h1>
+        </div>
         <section className="table-container">
           <div className="top-container">
             <h2>Cadastro de Perfil</h2>
@@ -67,7 +79,12 @@ export default function Cadastro() {
             </div>
             <div className="input-container">
               <label htmlFor="neighborhood">Seu Bairro</label>
-              <input type="text" name="neighborghood" id="neighborhood" placeholder="Digite o bairro em que mora"/>
+              <input
+                type="text"
+                name="neighborghood"
+                id="neighborhood"
+                placeholder="Digite o bairro em que mora"
+              />
             </div>
             <Button label="Cadastrar" />
           </form>

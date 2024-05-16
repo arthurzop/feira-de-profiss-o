@@ -52,7 +52,7 @@ main h1 {
 }
 
 .main-line {
-  width: 40%;
+  width: 60%;
   border: solid 2px var(--vermelho);
 }
 
@@ -90,8 +90,13 @@ main h1 {
   left: 0;
 }
 
+.title {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
 
-form{
+form {
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -99,25 +104,25 @@ form{
   gap: 3vh;
 }
 
-.form-subcontainer{
+.form-subcontainer {
   display: flex;
   width: 100%;
   justify-content: space-between;
   gap: 2vw;
 }
 
-.input-container{
+.input-container {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.input-container label{
+.input-container label {
   font-size: 1.5em;
-  padding: .5vh;
+  padding: 0.5vh;
 }
 
-.input-container input{
+.input-container input {
   padding: 1.5vh;
   border-radius: 5px;
   border: 1px solid var(--cinza);
