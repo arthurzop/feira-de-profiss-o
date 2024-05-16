@@ -1,31 +1,79 @@
-header{
-    width: 100%;
-    height: fit-content;
-    padding: 4vh 2vw;
-    display: flex;
-    justify-content: space-between;
+header {
+  width: 100%;
+  height: fit-content;
+  padding: 4vh 2vw;
+  display: flex;
+  justify-content: start;
 }
 
-header h1{
-    font-size: 2.5em;
+.logo-container {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 14px;
 }
 
-.header-text{
-    text-align: center;
+.logo-line {
+  height: 60%;
+  max-height: 60%;
+  border-right: solid 0.5px var(--vermelho);
 }
 
-main{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 5vh;
-    padding: 2vh 4vw;
+.logo-text {
+    text-wrap: nowrap;
 }
 
-main h2{
-    text-decoration: underline;
-    font-size: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    
+.logo-text h1{
+    font-weight: 700;
+}
+
+.logo-text h2{
+    font-weight: 300;
+}
+
+.decoration{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 120px;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8vh;
+  padding: 2vh 4vw;
+}
+
+main h1{
+  font-weight: 900;
+  font-size: 3em;
+}
+
+.main-line{
+  width: 40%;
+  border: solid 2px var(--vermelho);
+}
+
+.table-container{
+  gap: 2vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 8vh;
+}
+
+.top-container{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-container h2{
+  font-size: 2.25em;
+  font-weight: 600;
 }

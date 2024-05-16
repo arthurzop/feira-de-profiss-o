@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --vermelho: #ff0000;
-  --cinza: #747474;
-  --branco: #f9fdfe;
-  --preto: #0e0e0e;
+  --vermelho: #E10613;
+  --cinza: #878787;
+  --branco: #fff;
+  --preto: #000;
 }
 
 *{
