@@ -2,8 +2,7 @@ import "./style.css";
 
 import * as I from "iconoir-react";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer, Bounce } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 //images
 import Button from "../components/button/button";
 import LogoSenai from "../assets/logo.svg";
@@ -17,14 +16,13 @@ export default function Cadastro() {
     Swal.fire({
       title: "Cadastro realizado com sucesso!",
       text: `Redirecionando para a página inicial.
-    Obrigado por utilizar o sistema!`,
+    Obrigado por utilizar nosso sistema!`,
       icon: "success",
-      confirmButtonColor: '#e10613',
-      
+      confirmButtonColor: "#e10613",
     });
     setTimeout(() => {
       nav("/");
-    }, 4000);
+    }, 3000);
   };
 
   return (
@@ -57,7 +55,8 @@ export default function Cadastro() {
           <div className="top-container">
             <h2>Cadastro de Perfil</h2>
           </div>
-          <div className="form" onSubmit={() => {}}>
+          {/* onSubmit={() => {handleAction()}} */}
+          <div className="form">
             <div className="form-subcontainer">
               <div className="input-container">
                 <label htmlFor="name">Nome</label>
@@ -66,11 +65,12 @@ export default function Cadastro() {
                   name="name"
                   id="name"
                   placeholder="Digite seu nome"
+                  required
                 />
               </div>
               <div className="input-container">
                 <label htmlFor="birth_date">Data de Nascimento</label>
-                <input type="date" name="birth_date" id="birth_date" />
+                <input type="date" name="birth_date" id="birth_date" required />
               </div>
             </div>
             <div className="input-container">
@@ -80,6 +80,7 @@ export default function Cadastro() {
                 name="email"
                 id="email"
                 placeholder="Digite seu email"
+                required
               />
             </div>
             <div className="input-container">
@@ -89,6 +90,7 @@ export default function Cadastro() {
                 name="professional_goal"
                 id="professional_goal"
                 placeholder="Digite sua profissão dos sonhos"
+                required
               />
             </div>
             <div className="input-container">
@@ -98,6 +100,7 @@ export default function Cadastro() {
                 name="neighborghood"
                 id="neighborhood"
                 placeholder="Digite o bairro em que mora"
+                required
               />
             </div>
             <Button
@@ -109,16 +112,6 @@ export default function Cadastro() {
           </div>
         </section>
       </main>
-      <ToastContainer
-        position="bottom-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        pauseOnHover
-      />
     </body>
   );
 }

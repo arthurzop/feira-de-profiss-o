@@ -53,6 +53,30 @@ export default function HomePage() {
   ];
   return (
     <body>
+      {isOpen && (
+        <>
+          <div
+            className="modal-overlay"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          ></div>
+          <div className="modal-container">
+            <h1>Tem Certeza?</h1>
+            <div className="modal-button-container">
+              <button
+                className="modal-button"
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+              >
+                Cancelar
+              </button>
+              <Button label="Excluir" Click={() => {}} />
+            </div>
+          </div>
+        </>
+      )}
       <header>
         <div className="logo-container">
           <img src={LogoSenai} alt="" className="logo" />
@@ -64,13 +88,19 @@ export default function HomePage() {
         </div>
         <img src={decoRight} alt="decoration" className="decoration" />
       </header>
+
       <main>
         <h1>Demonstração de Funcionalidade</h1>
         <div className="main-line"></div>
         <section className="table-container">
           <div className="top-container">
             <h2>Perfis Cadastrados</h2>
-            <Button label="Novo Cadastro" Click={() => {nav("/cadastro")}} />
+            <Button
+              label="Novo Cadastro"
+              Click={() => {
+                nav("/cadastro");
+              }}
+            />
           </div>
           <TableContainer
             component={Paper}
@@ -124,7 +154,9 @@ export default function HomePage() {
                     >
                       <I.Trash
                         style={{ cursor: "pointer" }}
-                        onClick={() => {}}
+                        onClick={() => {
+                          setIsOpen(!isOpen);
+                        }}
                       />
                       <I.EditPencil
                         style={{ cursor: "pointer" }}
