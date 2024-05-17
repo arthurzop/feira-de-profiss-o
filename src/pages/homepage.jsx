@@ -90,8 +90,10 @@ export default function HomePage() {
       </header>
 
       <main>
-        <h1>Demonstração de Funcionalidade</h1>
-        <div className="main-line"></div>
+        <h1>
+          Demonstração de Funcionalidade
+          <div className="main-line "></div>
+        </h1>
         <section className="table-container">
           <div className="top-container">
             <h2>Perfis Cadastrados</h2>

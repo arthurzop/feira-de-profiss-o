@@ -51,8 +51,9 @@ main h1 {
   font-size: 3em;
 }
 
+
 .main-line {
-  width: 60%;
+  width: 500px;
   border: solid 2px var(--vermelho);
 }
 
