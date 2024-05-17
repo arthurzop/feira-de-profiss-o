@@ -26,3 +26,12 @@
     transform: scale(0.98);
   }
 }
+
+@media (min-width: 1239px){
+  .button{
+    width: fit-content;
+    min-width: 200px;
+    max-width: 250px;
+    padding-inline: 3vw;
+  }
+}
