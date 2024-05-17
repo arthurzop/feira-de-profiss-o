@@ -38,17 +38,18 @@ export default function Cadastro() {
         </div>
         <img src={decoLeft} alt="decoration" className="decoration deco-left" />
       </header>
-      <main>
+      <main className="main">
         <div className="title">
           <I.NavArrowLeft
             style={{ fontSize: "2em", cursor: "pointer" }}
+            className="nav-arrow"
             onClick={() => {
               nav("/");
             }}
           />
           <h1>
             Demonstração de Funionalidade
-            <div className="main-line"></div>
+            <div className="main-line cad-line"></div>
           </h1>
         </div>
         <section className="table-container">

@@ -47,7 +47,7 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 5vh;
+  margin-top: 3vh;
   padding: 2vh 4vw;
 }
 
@@ -207,7 +207,7 @@ div#swal2-html-container {
   background-color: rgba(75, 75, 75, 0.39);
 }
 
-@media (min-width: 1239px) {
+@media screen and (width <= 1239px) {
   body {
     overflow-x: hidden;
     overflow-y: auto;
@@ -228,7 +228,7 @@ div#swal2-html-container {
   }
 
   main {
-    margin-top: 15vh;
+    margin-top: 10vh;
   }
 
   main h1 {
@@ -253,5 +253,78 @@ div#swal2-html-container {
 
     height: 200px;
     width: 500px;
+  }
+}
+
+@media screen and (width <= 414px) {
+  .decoration {
+    width: 400px;
+    height: auto;
+  }
+
+  header, .cad-header {
+    justify-content: center;
+  }
+
+  .logo-container {
+    margin-top: 10vh;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .logo-text h1 {
+    font-size: 1.2em;
+  }
+
+  .logo-text h2 {
+    font-size: 1em;
+  }
+
+  main {
+    margin-top: 20vh;
+  }
+
+  .main {
+    margin-top: 11vh;
+  }
+
+  main h1 {
+    font-size: 2.2em;
+  }
+
+  .main-line {
+    width: 250px;
+  }
+
+  .table-container {
+    margin-top: 6vh;
+  }
+
+  .top-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 4vh;
+  }
+
+  .top-container h2 {
+    font-size: 2em;
+  }
+  
+  .title{
+    gap: 5vw;
+  }
+
+  .title h1{
+    font-size: 1.6em;
+  }
+
+  .cad-line{
+    width: 150px;
+  }
+
+  .form-subcontainer {
+    align-items: flex-end;
   }
 }
