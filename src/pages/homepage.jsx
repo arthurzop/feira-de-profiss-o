@@ -8,8 +8,6 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import * as I from "iconoir-react";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import LogoSenai from "../assets/logo.svg";
@@ -20,7 +18,6 @@ import Button from "../components/button/button";
 export default function HomePage() {
   const nav = useNavigate();
 
-  const [isOpen, setIsOpen] = useState(false);
 
   function createData(
     name,
@@ -53,30 +50,6 @@ export default function HomePage() {
   ];
   return (
     <body>
-      {isOpen && (
-        <>
-          <div
-            className="modal-overlay"
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          ></div>
-          <div className="modal-container">
-            <h1>Tem Certeza?</h1>
-            <div className="modal-button-container">
-              <button
-                className="modal-button"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
-              >
-                Cancelar
-              </button>
-              <Button label="Excluir" Click={() => {}} />
-            </div>
-          </div>
-        </>
-      )}
       <header>
         <div className="logo-container">
           <img src={LogoSenai} alt="" className="logo" />
@@ -131,10 +104,7 @@ export default function HomePage() {
                   <TableCell style={{ backgroundColor: "#f0f0f0" }}>
                     <b className="table-header-text">Bairro</b>
                   </TableCell>
-                  <TableCell
-                    style={{ backgroundColor: "#f0f0f0" }}
-                    align="right"
-                  ></TableCell>
+                  
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -150,21 +120,7 @@ export default function HomePage() {
                     <TableCell>{row.email}</TableCell>
                     <TableCell>{row.professional_goal}</TableCell>
                     <TableCell>{row.neighborhood}</TableCell>
-                    <TableCell
-                      align="right"
-                      style={{ display: "flex", gap: "2em" }}
-                    >
-                      <I.Trash
-                        style={{ cursor: "pointer" }}
-                        onClick={() => {
-                          setIsOpen(!isOpen);
-                        }}
-                      />
-                      <I.EditPencil
-                        style={{ cursor: "pointer" }}
-                        onClick={() => {}}
-                      />
-                    </TableCell>
+                    
                   </TableRow>
                 ))}
               </TableBody>

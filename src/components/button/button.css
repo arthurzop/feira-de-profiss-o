@@ -2,9 +2,9 @@
   border: none;
   outline: none;
   width: fit-content;
+  text-wrap: nowrap;
   max-width: 300px;
   min-width: 250px;
-
   height: 44px;
   padding-inline: 3vw;
   font-size: 1.2em;
