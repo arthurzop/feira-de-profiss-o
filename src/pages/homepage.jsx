@@ -22,37 +22,23 @@ export default function HomePage() {
   const nav = useNavigate();
 
   useEffect(() => {
-    const response = axios
+    fetchData();
+  });
+
+  const fetchData = () => {
+    axios
       .get("http://localhost:8080/presence/all", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
       })
-      .then(() => {
+      .then((response) => {
+        console.log(response);
         setPerfis(response.data);
-        console.log(response.data);
-      });
-  });
-
-  // useEffect(() => {
-  //   fetchData();
-  // });
-
-  // const fetchData = () => {
-  //   axios
-  //     .get("http://localhost:8080/presence/all", {
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log(response);
-  //       setPerfis(response.data);
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <body>
       <header>
