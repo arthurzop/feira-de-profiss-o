@@ -23,7 +23,7 @@ export default function HomePage() {
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   const fetchData = () => {
     axios
