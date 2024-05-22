@@ -21,17 +21,18 @@ export default function HomePage() {
   const [perfis, setPerfis] = useState([]);
   const nav = useNavigate();
 
+  const API_ALL = process.env.API_ALL;
+
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = () => {
     axios
-      .get("http://presencesenai.eastus.cloudapp.azure.com:8080/presence/presence/all", {
+      .get(`${API_ALL}`, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          
         },
       })
       .then((response) => {

@@ -9,15 +9,17 @@ import LogoSenai from "../assets/logo.svg";
 import decoLeft from "../assets/deco-left.svg";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { validate,res } from "react-email-validator";
+import { validate, res } from "react-email-validator";
 
 export default function Cadastro() {
   const nav = useNavigate();
 
+  const API_ADD = process.env.API_ADD;
+
   const handleAction = async () => {
     validate(email);
     if (res) {
-      console.log('entrou na res', res)
+      console.log("entrou na res", res);
       if (
         name == "" ||
         neighborhood == "" ||
@@ -27,7 +29,7 @@ export default function Cadastro() {
       } else {
         try {
           const response = await axios.post(
-            "http://presencesenai.eastus.cloudapp.azure.com:8080/presence/presence/add",
+            `${API_ADD}`,
             { name, date_birth, email, professional_goal, neighborhood },
             {
               headers: {
