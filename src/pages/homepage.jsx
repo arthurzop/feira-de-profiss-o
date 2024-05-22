@@ -28,10 +28,11 @@ export default function HomePage() {
   const fetchData = () => {
     axios
       .get("http://presencesenai.eastus.cloudapp.azure.com:8080/presence/presence/all", {
-        // headers: {
-        //   Accept: "application/json",
-        //   "Content-Type": "application/json",
-        // },
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          
+        },
       })
       .then((response) => {
         console.log(response);
