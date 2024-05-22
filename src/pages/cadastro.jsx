@@ -27,7 +27,7 @@ export default function Cadastro() {
       } else {
         try {
           const response = await axios.post(
-            "http://localhost:8080/presence/add",
+            "http://presencesenai.eastus.cloudapp.azure.com:8080/presence/presence/add",
             { name, date_birth, email, professional_goal, neighborhood },
             {
               headers: {

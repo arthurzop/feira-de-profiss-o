@@ -27,7 +27,7 @@ export default function HomePage() {
 
   const fetchData = () => {
     axios
-      .get("http://localhost:8080/presence/all", {
+      .get("http://presencesenai.eastus.cloudapp.azure.com:8080/presence/presence/all", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
