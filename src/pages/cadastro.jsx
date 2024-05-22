@@ -14,7 +14,7 @@ import { validate, res } from "react-email-validator";
 export default function Cadastro() {
   const nav = useNavigate();
 
-  const API_ADD = process.env.API_ADD;
+  const API_ADD = import.meta.env.API_ADD;
 
   const handleAction = async () => {
     validate(email);

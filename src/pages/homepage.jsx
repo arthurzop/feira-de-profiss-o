@@ -21,8 +21,8 @@ export default function HomePage() {
   const [perfis, setPerfis] = useState([]);
   const nav = useNavigate();
 
-  const API_ALL = process.env.API_ALL;
-  console.log(API_ALL)
+  const API_ALL = import.meta.env.API_ALL;
+  console.log(API_ALL);
 
   useEffect(() => {
     fetchData();
