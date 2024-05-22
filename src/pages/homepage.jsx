@@ -21,8 +21,8 @@ export default function HomePage() {
   const [perfis, setPerfis] = useState([]);
   const nav = useNavigate();
 
-  const API_ALL = import.meta.env.API_ALL;
-  console.log(API_ALL);
+  const VITE_API_ALL = import.meta.env.VITE_API_ALL;
+  console.log("api add", import.meta.env.VITE_API_ALL);
 
   useEffect(() => {
     fetchData();
@@ -30,7 +30,7 @@ export default function HomePage() {
 
   const fetchData = () => {
     axios
-      .get(`${API_ALL}`, {
+      .get(`${VITE_API_ALL}`, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

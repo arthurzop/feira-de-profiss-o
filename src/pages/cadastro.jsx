@@ -14,7 +14,7 @@ import { validate, res } from "react-email-validator";
 export default function Cadastro() {
   const nav = useNavigate();
 
-  const API_ADD = import.meta.env.API_ADD;
+  const VITE_API_ADD = import.meta.env.VITE_API_ADD;
 
   const handleAction = async () => {
     validate(email);
@@ -29,7 +29,7 @@ export default function Cadastro() {
       } else {
         try {
           const response = await axios.post(
-            `${API_ADD}`,
+            `${VITE_API_ADD}`,
             { name, date_birth, email, professional_goal, neighborhood },
             {
               headers: {
