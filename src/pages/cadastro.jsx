@@ -1,5 +1,5 @@
 import "./style.css";
-
+import { useState } from "react";
 import * as I from "iconoir-react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,22 +8,81 @@ import Button from "../components/button/button";
 import LogoSenai from "../assets/logo.svg";
 import decoLeft from "../assets/deco-left.svg";
 import Swal from "sweetalert2";
+import axios from "axios";
+import { validate,res } from "react-email-validator";
 
 export default function Cadastro() {
   const nav = useNavigate();
 
-  const handleAction = () => {
-    Swal.fire({
-      title: "Cadastro realizado com sucesso!",
-      text: `Redirecionando para a página inicial.
-    Obrigado por utilizar nosso sistema!`,
-      icon: "success",
-      confirmButtonColor: "#e10613",
-    });
-    setTimeout(() => {
-      nav("/");
-    }, 3000);
+  const handleAction = async () => {
+    validate(email);
+    if (res) {
+      console.log('entrou na res', res)
+      if (
+        name == "" ||
+        neighborhood == "" ||
+        email == "" ||
+        professional_goal == ""
+      ) {
+      } else {
+        try {
+          const response = await axios.post(
+            "http://localhost:8080/presence/add",
+            { name, date_birth, email, professional_goal, neighborhood },
+            {
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (response.status == 200) {
+            Swal.fire({
+              title: "Cadastro realizado com sucesso!",
+              text: `Redirecionando para a página inicial. Obrigado por utilizar nosso sistema!`,
+              icon: "success",
+              confirmButtonColor: "#e10613",
+            });
+            setNull();
+            setTimeout(() => {
+              nav("/");
+            }, 3000);
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Error..",
+              text: "Erro ao realizar cadastro!",
+              confirmButtonColor: "#e10613",
+            });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    } else {
+      Swal.fire({
+        icon: "warning",
+        title: "Email Inválido!",
+        text: "Por Favor, preencha um email válido.",
+        confirmButtonColor: "#e10613",
+      });
+      setNull();
+    }
   };
+
+  const setNull = () => {
+    setDate(new Date());
+    setEmail("");
+    setName("");
+    setProfessional("");
+    setNeighborhood("");
+  };
+
+  const [name, setName] = useState("");
+  const [date_birth, setDate] = useState(new Date());
+  const [email, setEmail] = useState("");
+  const [professional_goal, setProfessional] = useState("");
+  const [neighborhood, setNeighborhood] = useState("");
 
   return (
     <body>
@@ -67,11 +126,25 @@ export default function Cadastro() {
                   id="name"
                   placeholder="Digite seu nome"
                   required
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
                 />
               </div>
               <div className="input-container">
-                <label htmlFor="birth_date">Data de Nascimento</label>
-                <input type="date" name="birth_date" id="birth_date" required />
+                <label htmlFor="date_birth">Data de Nascimento</label>
+                <input
+                  type="date"
+                  name="date_birth"
+                  id="date_birth"
+                  autoComplete="on"
+                  required
+                  value={date_birth}
+                  onChange={(e) => {
+                    setDate(e.target.value);
+                  }}
+                />
               </div>
             </div>
             <div className="input-container">
@@ -82,6 +155,10 @@ export default function Cadastro() {
                 id="email"
                 placeholder="Digite seu email"
                 required
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
             </div>
             <div className="input-container">
@@ -92,6 +169,10 @@ export default function Cadastro() {
                 id="professional_goal"
                 placeholder="Digite sua profissão dos sonhos"
                 required
+                value={professional_goal}
+                onChange={(e) => {
+                  setProfessional(e.target.value);
+                }}
               />
             </div>
             <div className="input-container">
@@ -102,6 +183,10 @@ export default function Cadastro() {
                 id="neighborhood"
                 placeholder="Digite o bairro em que mora"
                 required
+                value={neighborhood}
+                onChange={(e) => {
+                  setNeighborhood(e.target.value);
+                }}
               />
             </div>
             <Button
