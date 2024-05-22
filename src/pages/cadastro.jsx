@@ -107,7 +107,7 @@ export default function Cadastro() {
             }}
           />
           <h1>
-            Demonstração de Funionalidade
+            Demonstração de Funcionalidade
             <div className="main-line cad-line"></div>
           </h1>
         </div>
