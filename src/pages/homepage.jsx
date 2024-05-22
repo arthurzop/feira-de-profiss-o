@@ -22,6 +22,7 @@ export default function HomePage() {
   const nav = useNavigate();
 
   const API_ALL = process.env.API_ALL;
+  console.log(API_ALL)
 
   useEffect(() => {
     fetchData();
