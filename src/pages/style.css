@@ -255,8 +255,16 @@ div#swal2-html-container {
     width: 500px;
   }
 }
+/* media querie para tablet */
+@media  screen and (width <= 1030px) and (width >= 771px) {
+  .logo-container{
+    margin-top: 10vh;
+  }
+}
 
-@media screen and (width <= 414px) {
+
+/* media querie para celular */
+@media screen and (width <= 770px) { 
   .decoration {
     width: 400px;
     height: auto;
@@ -303,8 +311,9 @@ div#swal2-html-container {
   }
 
   .top-container {
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: 4vh;
   }
 
@@ -327,4 +336,12 @@ div#swal2-html-container {
   .form-subcontainer {
     align-items: flex-end;
   }
+}
+
+/* media querie para menor que 414 */
+@media screen and (width < 414px){
+  .decoration{
+    width: 90%;
+  }
+
 }
