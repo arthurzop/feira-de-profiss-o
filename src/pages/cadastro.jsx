@@ -9,57 +9,64 @@ import LogoSenai from "../assets/logo.svg";
 import decoLeft from "../assets/deco-left.svg";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { validate,res } from "react-email-validator";
 
 export default function Cadastro() {
   const nav = useNavigate();
 
   const handleAction = async () => {
-    if (
-      name == "" ||
-      neighborhood == "" ||
-      email == "" ||
-      professional_goal == ""
-    ) {
+    validate(email);
+    if (res) {
+      console.log('entrou na res', res)
+      if (
+        name == "" ||
+        neighborhood == "" ||
+        email == "" ||
+        professional_goal == ""
+      ) {
+      } else {
+        try {
+          const response = await axios.post(
+            "http://localhost:8080/presence/add",
+            { name, date_birth, email, professional_goal, neighborhood },
+            {
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (response.status == 200) {
+            Swal.fire({
+              title: "Cadastro realizado com sucesso!",
+              text: `Redirecionando para a página inicial. Obrigado por utilizar nosso sistema!`,
+              icon: "success",
+              confirmButtonColor: "#e10613",
+            });
+            setNull();
+            setTimeout(() => {
+              nav("/");
+            }, 3000);
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Error..",
+              text: "Erro ao realizar cadastro!",
+              confirmButtonColor: "#e10613",
+            });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    } else {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Preencha todos os campos!",
+        icon: "warning",
+        title: "Email Inválido!",
+        text: "Por Favor, preencha um email válido.",
         confirmButtonColor: "#e10613",
       });
-    } else {
-      try {
-        const response = await axios.post(
-          "http://localhost:8080/presence/add",
-          { name, date_birth, email, professional_goal, neighborhood },
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        if (response.status == 200) {
-          Swal.fire({
-            title: "Cadastro realizado com sucesso!",
-            text: `Redirecionando para a página inicial. Obrigado por utilizar nosso sistema!`,
-            icon: "success",
-            confirmButtonColor: "#e10613",
-          });
-          setNull();
-          setTimeout(() => {
-            nav("/");
-          }, 3000);
-        } else {
-          Swal.fire({
-            icon: "error",
-            title: "Error..",
-            text: "Erro ao realizar cadastro!",
-            confirmButtonColor: "#e10613",
-          });
-        }
-      } catch (error) {
-        console.log(error);
-      }
+      setNull();
     }
   };
 
