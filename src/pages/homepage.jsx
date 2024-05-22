@@ -29,7 +29,7 @@ export default function HomePage() {
     axios
       .get("http://presencesenai.eastus.cloudapp.azure.com:8080/presence/presence/all", {
         headers: {
-          'Accept': "application/json",
+          Accept: "application/json",
           "Content-Type": "application/json",
         },
       })
