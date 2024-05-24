@@ -18,6 +18,5 @@ body {
   height: 100vh;
   background-color: var(--branco);
   font-family: "Montserrat", sans-serif;
-  overflow-y: hidden;
   transition: all 1s ease-in-out;
 }
