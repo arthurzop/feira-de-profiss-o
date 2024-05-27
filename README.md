@@ -3,6 +3,10 @@
 
 Documentaçao do Front-End / Web Design
 
+## Demonstração
+
+ - [Documentação Completa (Notion)](https://natural-coneflower-ee5.notion.site/Feira-de-Profiss-es-SENAI-Documenta-o-Front-End-Design-2787839e869f451598825cc36d449f5a?pvs=4)
+
 ## Descrição:
 
 Para a prototipação do projeto, foi utilizado o Manual de Identidade Visual da Escola SENAI. Utilizando as cores e fonte da marca, assim como seguindo suas regras de aplicação.
